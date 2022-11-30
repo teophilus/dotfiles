@@ -14,3 +14,12 @@ require("teon.plugins.lsp.null-ls")
 require("teon.plugins.autopairs")
 require("teon.plugins.treesitter")
 require("teon.plugins.gitsigns")
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argc() == 0 then
+      -- Auto Open NvimTree on Start
+      vim.api.nvim_command("NvimTreeOpen")
+    end
+  end,
+})
